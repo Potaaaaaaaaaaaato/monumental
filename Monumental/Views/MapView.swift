@@ -8,11 +8,13 @@ struct MapView: View {
     @State private var searchText = ""
 
     private var filteredMonuments: [Monument] {
-        if searchText.isEmpty {
+        let query = searchText.normalizedForSearch
+        if query.isEmpty {
             return viewModel.monuments
         }
         return viewModel.monuments.filter { monument in
-            monument.nom.localizedCaseInsensitiveContains(searchText)
+            monument.nom.normalizedForSearch.contains(query)
+                || monument.localizedName.normalizedForSearch.contains(query)
         }
     }
 
@@ -46,6 +48,7 @@ struct MapView: View {
                         .background(.ultraThinMaterial)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
+                .accessibilityLabel("map.action.search.accessibility_label")
 
                 Button {
                     viewModel.showAllMonuments()
@@ -56,6 +59,7 @@ struct MapView: View {
                         .background(.ultraThinMaterial)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
+                .accessibilityLabel("map.action.show_all.accessibility_label")
             }
             .padding()
         }

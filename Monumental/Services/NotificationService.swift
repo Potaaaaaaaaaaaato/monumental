@@ -32,7 +32,7 @@ final class NotificationService: ObservableObject {
         content.title = String(localized: "notification.monument.nearby.title")
         content.body = String(
             format: NSLocalizedString("notification.monument.nearby.body", comment: ""),
-            monument.nom
+            monument.localizedName
         )
         content.sound = .default
         content.userInfo = ["monumentId": monument.id.uuidString]

@@ -4,6 +4,8 @@
 "search.monument.prompt" = "Buscar un monumento";
 "map.search.navigation.title" = "Búsqueda";
 "common.close" = "Cerrar";
+"map.action.search.accessibility_label" = "Buscar un monumento";
+"map.action.show_all.accessibility_label" = "Mostrar todos los monumentos";
 "detail.section.description" = "Descripción";
 "detail.section.historical_context" = "Contexto histórico";
 "detail.section.information" = "Información";
@@ -17,7 +19,7 @@
 "transport.tramway" = "Tranvía";
 "transport.noctilien" = "Noctilien";
 "detail.action.directions.apple_maps" = "Ruta en Mapas";
-"common.arrondissement.format" = "%d.º distrito";
+"common.arrondissement.template" = "distrito %@";
 "distance.meters.format" = "%.0f m";
 "distance.kilometers.format" = "%.1f km";
 "notification.monument.nearby.title" = "Monumento cercano";
