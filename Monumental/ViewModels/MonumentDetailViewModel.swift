@@ -25,9 +25,9 @@ final class MonumentDetailViewModel: ObservableObject {
         }
         
         if dist < 1000 {
-            distance = String(format: "%.0f m", dist)
+            distance = String(format: NSLocalizedString("distance.meters.format", comment: ""), dist)
         } else {
-            distance = String(format: "%.1f km", dist / 1000)
+            distance = String(format: NSLocalizedString("distance.kilometers.format", comment: ""), dist / 1000)
         }
     }
     

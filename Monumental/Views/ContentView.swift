@@ -19,7 +19,7 @@ struct ContentView: View {
         TabView(selection: $selectedTab) {
             MapView()
                 .tabItem {
-                    Label("Carte", systemImage: "map.fill")
+                    Label("tab.map.title", systemImage: "map.fill")
                 }
                 .tag(0)
             
@@ -27,8 +27,8 @@ struct ContentView: View {
                 MonumentListView(monuments: filteredMonuments) { monument in
                     selectedMonument = monument
                 }
-                .navigationTitle("Monuments")
-                .searchable(text: $searchText, prompt: "Rechercher un monument")
+                .navigationTitle("list.navigation.title")
+                .searchable(text: $searchText, prompt: "search.monument.prompt")
                 .navigationDestination(item: $selectedMonument) { monument in
                     MonumentDetailView(monument: monument)
                 }
@@ -39,7 +39,7 @@ struct ContentView: View {
                 }
             }
             .tabItem {
-                Label("Liste", systemImage: "list.bullet")
+                Label("tab.list.title", systemImage: "list.bullet")
             }
             .tag(1)
         }

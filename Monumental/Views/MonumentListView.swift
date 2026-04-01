@@ -35,7 +35,7 @@ struct MonumentRow: View {
                     .font(.headline)
                     .foregroundStyle(.primary)
                 
-                Text("\(monument.arrondissement)e arrondissement")
+                Text(String(format: NSLocalizedString("common.arrondissement.format", comment: ""), monument.arrondissement))
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             }

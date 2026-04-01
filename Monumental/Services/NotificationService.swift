@@ -29,8 +29,11 @@ final class NotificationService: ObservableObject {
         guard canNotify(for: monument.id) else { return }
         
         let content = UNMutableNotificationContent()
-        content.title = "Monument à proximité"
-        content.body = "Vous êtes près de \(monument.nom)"
+        content.title = String(localized: "notification.monument.nearby.title")
+        content.body = String(
+            format: NSLocalizedString("notification.monument.nearby.body", comment: ""),
+            monument.nom
+        )
         content.sound = .default
         content.userInfo = ["monumentId": monument.id.uuidString]
         

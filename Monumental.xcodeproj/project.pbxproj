@@ -86,11 +86,14 @@
 				};
 			};
 			buildConfigurationList = 6A80F4542F3A30D500FFFD22 /* Build configuration list for PBXProject "Monumental" */;
-			developmentRegion = en;
+			developmentRegion = fr;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				es,
+				it,
+				fr,
 			);
 			mainGroup = 6A80F4502F3A30D500FFFD22;
 			minimizedProjectReferenceProxies = 1;
