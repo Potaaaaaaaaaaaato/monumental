@@ -6,6 +6,7 @@ struct MapView: View {
     @State private var showingDetail = false
     @State private var showingSearch = false
     @State private var searchText = ""
+    @State private var is3DEnabled = false
 
     private var filteredMonuments: [Monument] {
         let query = searchText.normalizedForSearch
@@ -36,9 +37,21 @@ struct MapView: View {
                 }
             }
         }
+        .mapStyle(is3DEnabled ? .standard(elevation: .realistic) : .standard(elevation: .flat))
         .ignoresSafeArea(edges: .top)
         .overlay(alignment: .topTrailing) {
             HStack(spacing: 12) {
+                Button {
+                    is3DEnabled.toggle()
+                } label: {
+                    Image(systemName: is3DEnabled ? "view.2d" : "view.3d")
+                        .font(.system(size: 18, weight: .medium))
+                        .frame(width: 44, height: 44)
+                        .background(.ultraThinMaterial)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                }
+                .accessibilityLabel(is3DEnabled ? "map.action.toggle_3d.on.accessibility_label" : "map.action.toggle_3d.off.accessibility_label")
+
                 Button {
                     showingSearch = true
                 } label: {

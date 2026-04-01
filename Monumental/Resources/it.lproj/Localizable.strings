@@ -4,6 +4,8 @@
 "search.monument.prompt" = "Cerca un monumento";
 "map.search.navigation.title" = "Ricerca";
 "common.close" = "Chiudi";
+"map.action.toggle_3d.off.accessibility_label" = "Attiva la vista 3D";
+"map.action.toggle_3d.on.accessibility_label" = "Disattiva la vista 3D";
 "map.action.search.accessibility_label" = "Cerca un monumento";
 "map.action.show_all.accessibility_label" = "Mostra tutti i monumenti";
 "detail.section.description" = "Descrizione";
