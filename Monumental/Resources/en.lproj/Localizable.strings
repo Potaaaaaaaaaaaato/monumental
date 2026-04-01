@@ -4,6 +4,8 @@
 "search.monument.prompt" = "Search for a monument";
 "map.search.navigation.title" = "Search";
 "common.close" = "Close";
+"map.action.toggle_3d.off.accessibility_label" = "Enable 3D view";
+"map.action.toggle_3d.on.accessibility_label" = "Disable 3D view";
 "map.action.search.accessibility_label" = "Search for a monument";
 "map.action.show_all.accessibility_label" = "Show all monuments";
 "detail.section.description" = "Description";
