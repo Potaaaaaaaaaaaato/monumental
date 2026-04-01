@@ -31,11 +31,11 @@ struct MonumentRow: View {
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             
             VStack(alignment: .leading, spacing: 4) {
-                Text(monument.nom)
+                Text(monument.localizedName)
                     .font(.headline)
                     .foregroundStyle(.primary)
                 
-                Text(String(format: NSLocalizedString("common.arrondissement.format", comment: ""), monument.arrondissement))
+                Text(LocalizationFormatter.arrondissement(monument.arrondissement))
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             }

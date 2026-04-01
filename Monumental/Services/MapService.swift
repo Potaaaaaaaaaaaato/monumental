@@ -64,7 +64,7 @@ final class MapService {
     func openInMaps(monument: Monument) {
         let placemark = MKPlacemark(coordinate: monument.coordinate)
         let mapItem = MKMapItem(placemark: placemark)
-        mapItem.name = monument.nom
+        mapItem.name = monument.localizedName
         mapItem.openInMaps(launchOptions: [
             MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeWalking
         ])
@@ -76,9 +76,9 @@ final class MonumentAnnotation: NSObject, MKAnnotation, Identifiable {
     let monument: Monument
     
     var coordinate: CLLocationCoordinate2D { monument.coordinate }
-    var title: String? { monument.nom }
+    var title: String? { monument.localizedName }
     var subtitle: String? {
-        String(format: NSLocalizedString("common.arrondissement.format", comment: ""), monument.arrondissement)
+        LocalizationFormatter.arrondissement(monument.arrondissement)
     }
     
     init(monument: Monument) {

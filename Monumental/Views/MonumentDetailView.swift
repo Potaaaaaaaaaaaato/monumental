@@ -30,7 +30,7 @@ struct MonumentDetailView: View {
     
     private var header: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(viewModel.monument.nom)
+            Text(viewModel.monument.localizedName)
                 .font(.title)
                 .fontWeight(.bold)
             
@@ -78,10 +78,7 @@ struct MonumentDetailView: View {
             DetailRow(
                 icon: "mappin.circle.fill",
                 label: String(localized: "detail.info.arrondissement"),
-                value: String(
-                    format: NSLocalizedString("common.arrondissement.format", comment: ""),
-                    viewModel.monument.arrondissement
-                )
+                value: LocalizationFormatter.arrondissement(viewModel.monument.arrondissement)
             )
         }
     }

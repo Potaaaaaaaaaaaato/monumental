@@ -4,6 +4,8 @@
 "search.monument.prompt" = "Search for a monument";
 "map.search.navigation.title" = "Search";
 "common.close" = "Close";
+"map.action.search.accessibility_label" = "Search for a monument";
+"map.action.show_all.accessibility_label" = "Show all monuments";
 "detail.section.description" = "Description";
 "detail.section.historical_context" = "Historical context";
 "detail.section.information" = "Information";
@@ -17,7 +19,7 @@
 "transport.tramway" = "Tram";
 "transport.noctilien" = "Noctilien";
 "detail.action.directions.apple_maps" = "Directions in Maps";
-"common.arrondissement.format" = "%dth arrondissement";
+"common.arrondissement.template" = "%@ arrondissement";
 "distance.meters.format" = "%.0f m";
 "distance.kilometers.format" = "%.1f km";
 "notification.monument.nearby.title" = "Monument nearby";

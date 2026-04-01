@@ -44,6 +44,10 @@ struct Monument: Identifiable, Codable, Equatable, Hashable {
 }
 
 extension Monument {
+    var localizedName: String {
+        NSLocalizedString(nom, tableName: "MonumentNames", bundle: .main, value: nom, comment: "")
+    }
+    
     static let preview = Monument(
         id: UUID(),
         nom: "Tour Eiffel",

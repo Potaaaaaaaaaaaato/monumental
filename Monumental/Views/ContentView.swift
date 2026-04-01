@@ -7,11 +7,13 @@ struct ContentView: View {
     @State private var searchText = ""
     
     private var filteredMonuments: [Monument] {
-        if searchText.isEmpty {
+        let query = searchText.normalizedForSearch
+        if query.isEmpty {
             return viewModel.monuments
         }
         return viewModel.monuments.filter { monument in
-            monument.nom.localizedCaseInsensitiveContains(searchText)
+            monument.nom.normalizedForSearch.contains(query)
+                || monument.localizedName.normalizedForSearch.contains(query)
         }
     }
     
