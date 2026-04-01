@@ -1,0 +1,11 @@
+# Documentation perso
+claude.md
+
+# Xcode
+xcuserdata/
+*.xcuserstate
+
+# Secrets et privés
+.env
+.env.*
+GoogleService-Info.plist
