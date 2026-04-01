@@ -77,7 +77,9 @@ final class MonumentAnnotation: NSObject, MKAnnotation, Identifiable {
     
     var coordinate: CLLocationCoordinate2D { monument.coordinate }
     var title: String? { monument.nom }
-    var subtitle: String? { "\(monument.arrondissement)e arrondissement" }
+    var subtitle: String? {
+        String(format: NSLocalizedString("common.arrondissement.format", comment: ""), monument.arrondissement)
+    }
     
     init(monument: Monument) {
         self.id = monument.id
@@ -154,4 +156,3 @@ extension MapService {
         return annotations
     }
 }
-

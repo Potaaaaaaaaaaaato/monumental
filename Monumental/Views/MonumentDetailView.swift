@@ -48,7 +48,7 @@ struct MonumentDetailView: View {
     
     private var descriptionSection: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Description")
+            Text("detail.section.description")
                 .font(.headline)
             
             Text(viewModel.monument.description)
@@ -59,7 +59,7 @@ struct MonumentDetailView: View {
     
     private var historicalContext: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Contexte historique")
+            Text("detail.section.historical_context")
                 .font(.headline)
             
             Text(viewModel.monument.contexteHistorique)
@@ -70,25 +70,32 @@ struct MonumentDetailView: View {
     
     private var detailsSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Informations")
+            Text("detail.section.information")
                 .font(.headline)
             
-            DetailRow(icon: "calendar", label: "Construction", value: viewModel.monument.dateConstruction)
-            DetailRow(icon: "person.fill", label: "Architecte", value: viewModel.monument.architecte)
-            DetailRow(icon: "mappin.circle.fill", label: "Arrondissement", value: "\(viewModel.monument.arrondissement)e")
+            DetailRow(icon: "calendar", label: String(localized: "detail.info.construction"), value: viewModel.monument.dateConstruction)
+            DetailRow(icon: "person.fill", label: String(localized: "detail.info.architect"), value: viewModel.monument.architecte)
+            DetailRow(
+                icon: "mappin.circle.fill",
+                label: String(localized: "detail.info.arrondissement"),
+                value: String(
+                    format: NSLocalizedString("common.arrondissement.format", comment: ""),
+                    viewModel.monument.arrondissement
+                )
+            )
         }
     }
     
     private var transportsSection: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("Transports")
+            Text("detail.section.transport")
                 .font(.headline)
             
             if let transports = viewModel.monument.transports {
                 if let metro = transports.metro, !metro.isEmpty {
                     TransportTypeView(
                         icon: "tram.fill",
-                        title: "Métro",
+                        title: String(localized: "transport.metro"),
                         color: .blue,
                         lines: metro,
                         transportType: .metro
@@ -98,7 +105,7 @@ struct MonumentDetailView: View {
                 if let rer = transports.rer, !rer.isEmpty {
                     TransportTypeView(
                         icon: "train.side.front.car",
-                        title: "RER",
+                        title: String(localized: "transport.rer"),
                         color: .purple,
                         lines: rer,
                         transportType: .rer
@@ -108,7 +115,7 @@ struct MonumentDetailView: View {
                 if let bus = transports.bus, !bus.isEmpty {
                     TransportSimpleView(
                         icon: "bus.fill",
-                        title: "Bus",
+                        title: String(localized: "transport.bus"),
                         color: .green,
                         lines: bus
                     )
@@ -117,7 +124,7 @@ struct MonumentDetailView: View {
                 if let tramway = transports.tramway, !tramway.isEmpty {
                     TransportTypeView(
                         icon: "tram",
-                        title: "Tramway",
+                        title: String(localized: "transport.tramway"),
                         color: .red,
                         lines: tramway,
                         transportType: .other
@@ -127,7 +134,7 @@ struct MonumentDetailView: View {
                 if let noctilien = transports.noctilien, !noctilien.isEmpty {
                     TransportSimpleView(
                         icon: "moon.fill",
-                        title: "Noctilien",
+                        title: String(localized: "transport.noctilien"),
                         color: .indigo,
                         lines: noctilien
                     )
@@ -140,7 +147,7 @@ struct MonumentDetailView: View {
         Button {
             viewModel.openInMaps()
         } label: {
-            Label("Itinéraire dans Plans", systemImage: "map.fill")
+            Label("detail.action.directions.apple_maps", systemImage: "map.fill")
                 .font(.headline)
                 .frame(maxWidth: .infinity)
                 .padding()

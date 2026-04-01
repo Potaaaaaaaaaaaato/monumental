@@ -69,8 +69,8 @@ struct MapView: View {
                         showingDetail = true
                     }
                 }
-                .navigationTitle("Recherche")
-                .searchable(text: $searchText, prompt: "Rechercher un monument")
+                .navigationTitle("map.search.navigation.title")
+                .searchable(text: $searchText, prompt: "search.monument.prompt")
                 .overlay {
                     if filteredMonuments.isEmpty && !searchText.isEmpty {
                         ContentUnavailableView.search(text: searchText)
@@ -78,7 +78,7 @@ struct MapView: View {
                 }
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
-                        Button("Fermer") {
+                        Button("common.close") {
                             showingSearch = false
                             searchText = ""
                         }
